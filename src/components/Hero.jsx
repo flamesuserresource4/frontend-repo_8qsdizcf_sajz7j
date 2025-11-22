@@ -11,7 +11,7 @@ function useMagnetic() {
     const el = ref.current
     if (!el) return
     const rect = el.getBoundingClientRect()
-    const strength = 16
+    const strength = 12
     const x = ((e.clientX - rect.left) / rect.width - 0.5) * strength
     const y = ((e.clientY - rect.top) / rect.height - 0.5) * strength
     el.style.transform = `translate3d(${x}px, ${y}px, 0)`
@@ -45,12 +45,12 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-slate-950/60 via-slate-950/30 to-slate-950/80 pointer-events-none" />
       </div>
 
-      <div className="relative z-10 mx-auto flex h-full max-w-6xl flex-col items-center justify-center px-6">
+      <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col items-center justify-center px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: easing }}
-          className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-sm backdrop-blur"
+          className="mb-5 sm:mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs sm:text-sm backdrop-blur"
         >
           <Sparkles className="h-4 w-4 text-amber-300" />
           <span className="text-white/80">Portfolio · Modern · Interactive</span>
@@ -63,7 +63,7 @@ export default function Hero() {
             hidden: {},
             visible: { transition: { staggerChildren: 0.04 } },
           }}
-          className="hero-title mb-4 text-center text-5xl font-semibold leading-tight tracking-tight md:text-7xl"
+          className="hero-title mb-3 sm:mb-4 text-center text-4xl sm:text-5xl md:text-7xl font-semibold leading-[1.1] tracking-tight"
           aria-label="Crafting unforgettable digital experiences"
         >
           {Array.from('Crafting unforgettable digital experiences').map((ch, i) => (
@@ -82,25 +82,25 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.7, ease: easing }}
-          className="mb-10 max-w-2xl text-center text-lg text-white/70 md:text-xl"
+          className="mb-8 sm:mb-10 max-w-2xl text-center text-base sm:text-lg text-white/70 md:text-xl"
         >
           Design systems, motion, and engineering converging into a single, seamless narrative.
         </motion.p>
 
-        <div className="flex items-center gap-4">
+        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
           <button
-            className="group relative overflow-hidden rounded-full border border-white/10 bg-white/10 px-6 py-3 text-white shadow-[0_0_40px_rgba(56,189,248,0.15)] backdrop-blur transition-colors hover:bg-white/15"
+            className="group relative overflow-hidden rounded-full border border-white/10 bg-white/10 px-5 sm:px-6 py-2.5 sm:py-3 text-white shadow-[0_0_40px_rgba(56,189,248,0.15)] backdrop-blur transition-colors hover:bg-white/15"
             ref={magnetic.ref}
             onMouseMove={magnetic.onMouseMove}
             onMouseLeave={magnetic.onMouseLeave}
           >
-            <span className="relative z-10 inline-flex items-center gap-2">
+            <span className="relative z-10 inline-flex items-center gap-2 text-sm sm:text-base">
               View Work
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </span>
             <span className="pointer-events-none absolute inset-0 -z-0 opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-100 bg-[radial-gradient(50%_50%_at_50%_50%,rgba(59,130,246,0.35),transparent_60%)]" />
           </button>
-          <a href="#contact" className="rounded-full border border-white/10 px-6 py-3 text-white/80 hover:text-white/100 transition-colors">Contact</a>
+          <a href="#contact" className="rounded-full border border-white/10 px-5 sm:px-6 py-2.5 sm:py-3 text-white/80 hover:text-white/100 transition-colors text-sm sm:text-base">Contact</a>
         </div>
 
         {/* Scroll indicator */}
